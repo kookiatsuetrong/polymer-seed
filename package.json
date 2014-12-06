@@ -1,0 +1,17 @@
+{
+	"name": "App",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "*",
+		"cookie-parser": "*",
+		"body-parser": "*",
+		"ejs": "*",
+		"less-middleware": "*",
+		"express-session": "*",
+		"mysql": "*",
+		"socket.io": "*",
+		"multer": "*",
+		"nodemailer": "*"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "polymer-seed",
+	"version": "0.0.7",
+	"authors": [
+		"Kookiat Suetrong <kookiatsuetrong@gmail.com>"
+	],
+	"license": "MIT",
+	"ignore": [
+		"node_modules",
+		"bower_components"
+	],
+	"dependencies": {
+		"polymer": "Polymer/polymer",
+		"core-elements": "Polymer/core-elements",
+		"paper-elements": "Polymer/paper-elements"
+	}
+}

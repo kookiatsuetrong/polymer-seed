@@ -35,16 +35,16 @@ paper-tabs[noink][nobar] paper-tab.core-selected {
 
 paper-tabs {
 	background-color: transparent;
-	color: @primary;
+	color: white;
 	box-shadow: none;
 }
 
 paper-tabs::shadow #selectionBar {
-	background-color: @primary;
+	background-color: yellow;
 }
 
 paper-tabs paper-tab::shadow #ink {
-	color: @primary;
+	color: lighten(@primary, 10%);
 }
 
 paper-checkbox {

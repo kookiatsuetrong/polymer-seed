@@ -10,32 +10,160 @@
 	<link rel="import" href="/polymer/core-toolbar/core-toolbar.html" />
 	<link rel="import" href="/polymer/core-media-query/core-media-query.html" />
 	<link rel="import" href="/polymer/paper-icon-button/paper-icon-button.html" />
+	<link rel="import" href="/polymer/core-drawer-panel/core-drawer-panel.html" />
+	<link rel="import" href="/polymer/paper-checkbox/paper-checkbox.html" />
+	<link rel="import" href="/polymer/core-label/core-label.html" />
+	<link rel="import" href="/polymer/paper-radio-group/paper-radio-group.html" />
+	<link rel="import" href="/polymer/paper-toggle-button/paper-toggle-button.html" />
+	<link rel="import" href="/polymer/paper-autogrow-textarea/paper-autogrow-textarea.html" />
+	<link rel="import" href="/polymer/paper-input-decorator/paper-input-decorator.html" />
+	<link rel="import" href="/polymer/paper-input/paper-input.html" />
+	<link rel="import" href="/polymer/paper-spinner/paper-spinner.html" />
+	<link rel="import" href="/polymer/paper-progress/paper-progress.html" />
+	<link rel="import" href="/polymer/paper-button/paper-button.html" />
+	<link rel="import" href="/polymer/paper-slider/paper-slider.html" />
 
 	<link rel="stylesheet" href="/css/styles.css" />
+
+	<style shim-shadowdom>
+	</style>
 
 </head>
 <body unresolved>
 
 	<core-toolbar class="medium-tall">
-
 		<paper-icon-button icon="menu"></paper-icon-button>
 		<div flex>Hello World</div>
 		<paper-icon-button icon="search"></paper-icon-button>
 		<paper-icon-button icon="more-vert"></paper-icon-button>
-
 		<div class="bottom fit" horizontal layout>
-
 			<paper-tabs selected="0" flex style="max-width: 600px;">
-
 				<paper-tab>ITEM ONE</paper-tab>
 				<paper-tab>ITEM TWO</paper-tab>
 				<paper-tab>ITEM THREE</paper-tab>
-
 			</paper-tabs>
-
 		</div>
-
 	</core-toolbar>
+
+	<section>
+		<h3>Input Text</h3>
+		<br/>
+		<paper-input label="Name"></paper-input>
+		<br/>
+		<paper-input label="Name" floatingLabel></paper-input>
+	</section>
+
+	<section>
+		<h3>Progress Bar</h3>
+		<paper-progress value="800" min="100" max="1000"></paper-progress>
+		<paper-progress value="40" secondaryProgress="80"></paper-progress>
+		<paper-progress indeterminate></paper-progress>
+	</section>
+
+	<section>
+		<h3>Slider</h3>
+		<div>Music, video, games &amp; other media</div>
+		<paper-slider value="50"></paper-slider>
+	</section>
+	<section>
+		<div center horizontal layout>
+			<div>Value</div>
+			<paper-slider value="23" max="255" editable></paper-slider>
+		</div>
+	</section>
+	<section class="green-slider">
+		<div>Brightness</div>
+		<paper-slider pin value="50"></paper-slider>
+	</section>
+	<section class="green-slider">
+		<div>
+			<span>Ratings</span><span id="ratingsLabel"></span>
+		</div>
+		<paper-slider id="ratings" pin snaps max="10" step="1" value="5"></paper-slider>
+	</section>
+
+	<br/>
+	<section>
+		<h3>Spinner</h3>
+		<paper-spinner active></paper-spinner>
+		<paper-spinner></paper-spinner>
+	</section>
+
+	<section>
+		<h3>Toggle Button</h3>
+		<br/>
+		<div center horizontal layout>
+			<div flex>Wi-Fi</div>
+			<paper-toggle-button checked></paper-toggle-button>
+		</div>
+		<br/>
+		<div center horizontal layout>
+			<div flex>Bluetooth</div>
+			<paper-toggle-button class="blue"></paper-toggle-button>
+		</div>
+	</section>
+
+
+	<section>
+		<h3>Checkbox</h3>
+		<core-label horizontal layout>
+		<paper-checkbox for></paper-checkbox>
+		<div vertical layout>
+			<h4>Notifications</h4>
+			<div>Notify me about updates to apps or games that I've downloaded</div>
+		</div>
+		</core-label>
+		<br/>
+		<core-label horizontal layout>
+		<paper-checkbox checked for></paper-checkbox>
+		<div vertical layout>
+			<h4>Auto-updates</h4>
+			<div>Auto-update apps over wifi only</div>
+		</div>
+		</core-label>
+		<br/>
+		<core-label horizontal layout>
+		<paper-checkbox for></paper-checkbox>
+		<div vertical layout>
+			<h4>Clear search history</h4>
+			<div>Remove all the searches you have ever performed</div>
+		</div>
+		</core-label>
+	</section>
+	<section>
+		<core-label center horizontal layout>
+			<div flex>Touch sounds</div>
+			<paper-checkbox class="blue" checked for></paper-checkbox>
+		</core-label>
+		<core-label center horizontal layout>
+			<div flex>Screen lock sound</div>
+			<paper-checkbox class="blue" for></paper-checkbox>
+		</core-label>
+		<core-label center horizontal layout>
+			<div flex>Vibrate on touch</div>
+			<paper-checkbox class="blue" for></paper-checkbox>
+		</core-label>
+	</section>
+
+	<section>
+		<h3>Radio Button</h3>
+		<h4>Keep Wi-Fi on during sleep</h4>
+		<paper-radio-group selected="always">
+			<paper-radio-button name="always" label="Always"></paper-radio-button>
+			<paper-radio-button name="pluggedin" label="Only when plugged in">
+				</paper-radio-button>
+			<paper-radio-button name="never" label="Never"></paper-radio-button>
+		</paper-radio-group>
+	</section>
+	<section>
+		<h4>Wi-Fi frequency band</h4>
+		<paper-radio-group class="blue" selected="auto">
+			<paper-radio-button name="auto" label="Auto"></paper-radio-button>
+			<paper-radio-button name="5ghz" label="5 GHz only"></paper-radio-button>
+			<paper-radio-button name="2.4ghz" label="2.4 GHz only"></paper-radio-button>
+		</paper-radio-group>
+	</section>
+
 
 	<script src="/socket.io/socket.io.js"></script>
 	<script>

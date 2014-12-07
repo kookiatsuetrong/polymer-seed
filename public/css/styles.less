@@ -1,11 +1,26 @@
+@primary: #00bcd4;
+
+html, body {
+	height: 100%;
+}
+
 body {
 	font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
-	margin: 0;
 	color: #333;
+	margin: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+section {
+	padding: 20px;
 }
 
 paper-tabs, core-toolbar {
-	background-color: #00bcd4;
+	background-color: @primary;
 	color: #fff;
 	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
 }
@@ -18,16 +33,134 @@ paper-tabs[noink][nobar] paper-tab.core-selected {
 	color: #ffff8d;
 }
 
-paper-tabs.transparent-teal {
+paper-tabs {
 	background-color: transparent;
-	color: #00bcd4;
+	color: @primary;
 	box-shadow: none;
 }
 
-paper-tabs.transparent-teal::shadow #selectionBar {
-	background-color: #00bcd4;
+paper-tabs::shadow #selectionBar {
+	background-color: @primary;
 }
 
-paper-tabs.transparent-teal paper-tab::shadow #ink {
-	color: #00bcd4;
+paper-tabs paper-tab::shadow #ink {
+	color: @primary;
 }
+
+paper-checkbox {
+	padding: 20px 20px 20px 0;
+}
+
+paper-checkbox::shadow #ink[checked] {
+	color: @primary;
+}
+
+paper-checkbox::shadow #checkbox.checked {
+	border-color: @primary;
+}
+
+paper-radio-group paper-radio-button::shadow #ink[checked] {
+	color: @primary;
+}
+
+paper-radio-group paper-radio-button::shadow #onRadio {
+	background-color: @primary;
+}
+
+paper-radio-button {
+	display: block;
+}
+
+paper-toggle-button::shadow paper-radio-button::shadow #ink[checked] {
+	color: @primary;
+}
+
+paper-toggle-button::shadow paper-radio-button::shadow #onRadio {
+	background-color: @primary;
+}
+
+paper-toggle-button::shadow #toggleBar[checked] {
+	background-color: @primary;
+}
+
+paper-input {
+	width: 100%;
+}
+paper-input /deep/ .unfocused-underline {
+	background-color: @primary;
+}
+paper-input /deep/ .focused-underline {
+	background-color: @primary;
+}
+paper-input[focused] /deep/ .floated-label .label-text {
+	color: @primary;
+}
+paper-input /deep/ .cursor {
+	background-color: @primary;
+}
+/*
+paper-input /deep/ ::-webkit-input-placeholder {
+	color: @primary;
+}
+paper-input /deep/ ::-moz-placeholder {
+	color: @primary;
+}
+paper-input /deep/ :-ms-input-placeholder {
+	color: @primary;
+}
+*/
+
+paper-spinner::shadow .circle {
+	border-color: @primary;
+}
+
+paper-progress {
+	display: block;
+	width: 100%;
+	padding: 25px 0;
+
+	&::shadow {
+		#activeProgress {
+			background-color: @primary;
+		}
+		#secondaryProgress {
+			background-color: lighten(@primary, 5%);
+		}
+	}
+}
+
+paper-slider {
+	width: 100%;
+}
+
+paper-slider::shadow #sliderKnobInner,
+paper-slider::shadow #sliderKnobInner::before,
+paper-slider::shadow #sliderBar::shadow #activeProgress {
+	background-color: @primary;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

@@ -1,4 +1,4 @@
-@primary: #00bcd4;
+@primary: lightsteelblue;
 
 html, body {
 	height: 100%;
@@ -139,7 +139,18 @@ paper-slider::shadow #sliderBar::shadow #activeProgress {
 	background-color: @primary;
 }
 
+paper-button.colored {
+	color: @primary;
+}
 
+paper-button[raised].colored {
+	background: @primary;
+	color: #fff;
+}
+
+paper-button.custom > core-icon {
+	margin-right: 4px;
+}
 
 
 

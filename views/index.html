@@ -22,6 +22,9 @@
 	<link rel="import" href="/polymer/paper-progress/paper-progress.html" />
 	<link rel="import" href="/polymer/paper-button/paper-button.html" />
 	<link rel="import" href="/polymer/paper-slider/paper-slider.html" />
+	<link rel="import" href="/polymer/core-icon/core-icon.html" />
+	<link rel="import" href="/polymer/core-icons/core-icons.html" />
+	<link rel="import" href="/polymer/paper-button/paper-button.html" />
 
 	<link rel="stylesheet" href="/css/styles.css" />
 
@@ -54,10 +57,11 @@
 	</section>
 
 	<section>
-		<h3>Progress Bar</h3>
-		<paper-progress value="800" min="100" max="1000"></paper-progress>
-		<paper-progress value="40" secondaryProgress="80"></paper-progress>
-		<paper-progress indeterminate></paper-progress>
+		<h3>Button</h3>
+		<paper-button raised>button</paper-button>
+		<paper-button raised class="colored">colored</paper-button>
+		<paper-button raised disabled>disabled</paper-button>
+		<paper-button raised noink>noink</paper-button>
 	</section>
 
 	<section>
@@ -82,12 +86,51 @@
 		<paper-slider id="ratings" pin snaps max="10" step="1" value="5"></paper-slider>
 	</section>
 
+	<section>
+		<h3>Progress Bar</h3>
+		<paper-progress value="800" min="100" max="1000"></paper-progress>
+		<paper-progress value="40" secondaryProgress="80"></paper-progress>
+		<paper-progress indeterminate></paper-progress>
+	</section>
+
 	<br/>
 	<section>
 		<h3>Spinner</h3>
 		<paper-spinner active></paper-spinner>
 		<paper-spinner></paper-spinner>
 	</section>
+
+	<section>
+		<h3>Button</h3>
+		<div>Flat buttons</div>
+		<paper-button>button</paper-button>
+		<paper-button class="colored">colored</paper-button>
+		<paper-button disabled>disabled</paper-button>
+		<paper-button noink>noink</paper-button>
+	</section>
+	<section>
+		<div>Raised buttons</div>
+		<paper-button raised>button</paper-button>
+		<paper-button raised class="colored">colored</paper-button>
+		<paper-button raised disabled>disabled</paper-button>
+		<paper-button raised noink>noink</paper-button>
+	</section>
+	<section>
+		<div>Custom button content</div>
+		<paper-button class="colored custom">
+			<core-icon icon="check"></core-icon>
+			ok
+		</paper-button>
+		<paper-button class="custom">
+			<core-icon icon="clear"></core-icon>
+			cancel
+		</paper-button>
+		<br>
+		<paper-button>
+			<a href="https://www.polymer-project.org" target="_blank">link</a>
+		</paper-button>
+	</section>
+
 
 	<section>
 		<h3>Toggle Button</h3>

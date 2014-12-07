@@ -23,6 +23,23 @@ router.get("/", function(req, res) {
 */
 });
 
+
+router.get("/header", function(req, res) {
+	res.render("header.html");
+});
+
+router.get("/toolbar", function(req, res) {
+	res.render("toolbar.html");
+});
+
+router.get("/drawer", function(req, res) {
+	res.render("drawer.html");
+});
+
+router.get("/scaffold", function(req, res) {
+	res.render("scaffold.html");
+});
+
 router.get("/signin", function(req, res) {
 	res.render("signin.html");
 });

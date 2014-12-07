@@ -28,7 +28,11 @@ section {
 }
 
 
-paper-tabs, core-toolbar {
+core-header-panel {
+	background: white;
+}
+paper-tabs,
+core-toolbar {
 	background-color: @primary;
 	color: #fff;
 	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
@@ -50,6 +54,7 @@ paper-tabs::shadow #selectionBar {
 paper-tabs paper-tab::shadow #ink {
 	color: lighten(@primary, 5%);
 }
+
 paper-checkbox {
 	padding: 20px 20px 20px 0;
 }

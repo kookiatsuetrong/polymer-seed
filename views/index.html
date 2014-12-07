@@ -25,6 +25,8 @@
 	<link rel="import" href="/polymer/paper-button/paper-button.html" />
 	<link rel="import" href="/polymer/paper-slider/paper-slider.html" />
 	<link rel="import" href="/polymer/paper-button/paper-button.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-dialog.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-action-dialog.html" />
 	<link rel="stylesheet" href="/css/styles.css" shim-shadowdom />
 
 </head>
@@ -89,7 +91,6 @@
 		<paper-progress indeterminate></paper-progress>
 	</section>
 
-	<br/>
 	<section>
 		<h3>Spinner</h3>
 		<paper-spinner active></paper-spinner>
@@ -127,7 +128,6 @@
 		</paper-button>
 	</section>
 
-
 	<section>
 		<h3>Toggle Button</h3>
 		<br/>
@@ -141,7 +141,6 @@
 			<paper-toggle-button class="blue"></paper-toggle-button>
 		</div>
 	</section>
-
 
 	<section>
 		<h3>Checkbox</h3>
@@ -204,6 +203,75 @@
 	</section>
 
 
+	<template is="auto-binding">
+		<section on-tap="{{toggleDialog1}}">
+			<div>Dialog Layouts</div>
+				<button>
+					Dialog with actions
+
+					<paper-action-dialog heading="Title" class="scrolling">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum.</p>
+
+						<paper-button dismissive>More Info...</paper-button>
+						<paper-button affirmative>Decline</paper-button>
+						<paper-button affirmative autofocus>Accept</paper-button>
+
+					</paper-action-dialog>
+
+				</button>
+			</div>
+		</section>
+	</template>
+
+
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
 	/*
@@ -214,6 +282,40 @@
 	});
 	*/
 	</script>
+
+<script>
+
+
+	var scope = document.querySelector('template[is=auto-binding]');
+
+	scope.toggleDialog1 = function(e) {
+		if (e.target.localName != 'button') {
+			return;
+		}
+		var d = e.target.querySelector('paper-dialog,paper-action-dialog');
+		if (!d) {
+			return;
+		}
+		d.toggle();
+	};
+
+	scope.transitions = [
+		'core-transition-center',
+		'core-transition-top',
+		'core-transition-bottom',
+		'core-transition-left',
+		'core-transition-right'
+	];
+
+	scope.toggleDialog2 = function(e) {
+		if (e.target.localName != 'button') {
+			return;
+		}
+		scope.transition = e.target.getAttribute('transition');
+		document.getElementById('dialog2').toggle();
+	};
+
+</script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
-@primary: #00bcd4;
-// @primary: hotpink;
+// @primary: #555;
+// @primary: #00bcd4;
+@primary: hotpink;
 // @primary: #ff6666;
 
 html, body {
@@ -27,7 +28,9 @@ section {
 	padding: 20px;
 }
 
-
+core-drawer-panel core-toolbar {
+	height: 120px;
+}
 core-header-panel {
 	background: white;
 }
@@ -50,6 +53,7 @@ paper-tabs {
 }
 paper-tabs::shadow #selectionBar {
 	background-color: white;
+	opacity: 0.75;
 }
 paper-tabs paper-tab::shadow #ink {
 	color: lighten(@primary, 5%);

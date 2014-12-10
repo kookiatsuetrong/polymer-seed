@@ -44,6 +44,10 @@ router.get("/signin", function(req, res) {
 	res.render("signin.html");
 });
 
+router.get("/demo", function(req, res) {
+	res.render("demo.html");
+});
+
 router.post("/signin", function(req, res) {
 	var digest = crypto.createHash("sha256").update(req.body.password).digest("hex");
 	pool.getConnection(function(error, db) {

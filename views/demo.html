@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<title>Polymer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="shortcut icon" href="/img/logo32.png">
+
+	<script src="/polymer/webcomponentsjs/webcomponents.min.js"></script>
+	<link rel="import" href="/polymer/font-roboto/roboto.html" />
+
+	<link rel="import" href="/polymer/core-drawer-panel/core-drawer-panel.html" />
+	<link rel="import" href="/polymer/core-header-panel/core-header-panel.html" />
+	<link rel="import" href="/polymer/core-icons/core-icons.html" />
+	<link rel="import" href="/polymer/core-icon/core-icon.html" />
+	<link rel="import" href="/polymer/core-label/core-label.html" />
+	<link rel="import" href="/polymer/core-media-query/core-media-query.html" />
+	<link rel="import" href="/polymer/core-menu/core-menu.html" />
+	<link rel="import" href="/polymer/core-menu/core-submenu.html" />
+	<link rel="import" href="/polymer/core-scaffold/core-scaffold.html" />
+	<link rel="import" href="/polymer/core-toolbar/core-toolbar.html" />
+
+	<link rel="import" href="/polymer/paper-button/paper-button.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-dialog.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-action-dialog.html" />
+	<link rel="import" href="/polymer/paper-checkbox/paper-checkbox.html" />
+	<link rel="import" href="/polymer/paper-icon-button/paper-icon-button.html" />
+	<link rel="import" href="/polymer/paper-input/paper-input.html" />
+	<link rel="import" href="/polymer/paper-input/paper-input-decorator.html" />
+	<link rel="import" href="/polymer/paper-progress/paper-progress.html" />
+	<link rel="import" href="/polymer/paper-radio-group/paper-radio-group.html" />
+	<link rel="import" href="/polymer/paper-slider/paper-slider.html" />
+	<link rel="import" href="/polymer/paper-spinner/paper-spinner.html" />
+	<link rel="import" href="/polymer/paper-tabs/paper-tabs.html" />
+	<link rel="import" href="/polymer/paper-toggle-button/paper-toggle-button.html" />
+
+	<link rel="stylesheet" href="/css/styles.css" shim-shadowdom />
+
+</head>
+
+<body fullbleed unresolved>
+
+	<core-drawer-panel id="drawerPanel">
+		<core-header-panel drawer>
+			<core-toolbar id="navheader'">
+				<span>Drawer Menu</span>
+			</core-toolbar>
+			<core-menu>
+				<core-item label="One"></core-item>
+				<core-item label="Two"></core-item>
+			</core-menu>
+		 </core-header-panel>
+		<core-header-panel main>
+			<core-toolbar>
+				<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+				<span flex>Drawer</span>
+			</core-toolbar>
+			<div class="content">
+				<br/>
+				If drawer is hidden, press button to display drawer.
+			</div>
+		</core-header-panel>
+	</core-drawer-panel>
+
+	<script>
+		document.addEventListener('polymer-ready', function() {
+			var navicon = document.getElementById('navicon');
+			var drawerPanel = document.getElementById('drawerPanel');
+			navicon.addEventListener('click', function() {
+				drawerPanel.togglePanel();
+			});
+		});
+	</script>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	/*
+	var socket = io.connect('http://localhost:4500');
+	socket.on('news', function (data) {
+		console.log(data);
+		socket.emit('my other event', { my: 'data' });
+	});
+	*/
+	</script>
+
+	<script>
+	function onVoice() {
+		var recognition = new webkitSpeechRecognition();
+		recognition.continuous = true;
+		recognition.interimResults = true;
+		recognition.onresult = function(event) {
+			for (var i = event.resultIndex; i < event.results.length; ++i) {
+				// console.log(i + ' ' + event.results[i][0].transcript);
+				if (event.results[i].isFinal) {
+					var result = event.results[i][0].transcript;
+					recognition.stop();
+					// $('#channel').val(result);
+					console.log('Final: ' + result);
+				}
+			}
+		};
+		recognition.start();
+	}
+
+	</script>
+
+</body>
+</html>

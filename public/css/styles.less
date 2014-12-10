@@ -1,6 +1,6 @@
 // @primary: #555;
-// @primary: #00bcd4;
-@primary: hotpink;
+@primary: #00bcd4;
+// @primary: hotpink;
 // @primary: #ff6666;
 
 html, body {
@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-	font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+	font-family: /* RobotoDraft, */ 'Helvetica Neue', Helvetica, Arial;
 	color: #333;
 	margin: 0;
 	/*
@@ -23,6 +23,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
+
+a { text-decoration: none; transition: all 0.5s ease-in-out; }
+a:link    { text-decoration: none; color: @primary; }
+a:visited { text-decoration: none; color: @primary; }
+a:hover   { text-decoration: none; color: lighten(@primary, 10%) }
+a:anchor  { text-decoration: none; color: lighten(@primary, 10%) }
 
 section {
 	padding: 20px;
@@ -98,18 +104,24 @@ paper-toggle-button::shadow #toggleBar[checked] {
 paper-input {
 	width: 100%;
 }
-paper-input /deep/ .unfocused-underline {
+paper-input           /deep/ .unfocused-underline,
+paper-input-decorator /deep/ .unfocused-underline {
 	background-color: @primary !important;
 }
-paper-input /deep/ .focused-underline {
+paper-input           /deep/ .focused-underline,
+paper-input-decorator /deep/ .focused-underline {
 	background-color: @primary !important;
 }
-paper-input /deep/ .cursor {
+paper-input           /deep/ .cursor,
+paper-input-decorator /deep/ .cursor {
 	background-color: @primary !important;
 }
-paper-input /deep/ .floated-label .label-text {
+paper-input           /deep/ .floated-label .label-text,
+paper-input-decorator /deep/ .floated-label .label-text {
 	color: @primary !important;
 }
+
+
 
 /*
 paper-input /deep/ ::-webkit-input-placeholder {
@@ -163,6 +175,10 @@ paper-button[raised].colored {
 
 paper-button.custom > core-icon {
 	margin-right: 4px;
+}
+
+paper-fab {
+	background: @primary;
 }
 
 paper-action-dialog #scroller {

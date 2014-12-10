@@ -1,81 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello World</title>
+	<title>Polymer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="shortcut icon" href="/img/logo32.png">
 
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/polymer/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="/polymer/font-roboto/roboto.html" />
 
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	<style>
-	body {
-		padding-top: 40px;
-		padding-bottom: 40px;
-		background-color: #eee;
+	<link rel="import" href="/polymer/core-ajax/core-ajax.html" />
+	<link rel="import" href="/polymer/core-drawer-panel/core-drawer-panel.html" />
+	<link rel="import" href="/polymer/core-header-panel/core-header-panel.html" />
+	<link rel="import" href="/polymer/core-icon/core-icon.html" />
+	<link rel="import" href="/polymer/core-icons/core-icons.html" />
+	<link rel="import" href="/polymer/core-label/core-label.html" />
+	<link rel="import" href="/polymer/core-media-query/core-media-query.html" />
+	<link rel="import" href="/polymer/core-menu/core-menu.html" />
+	<link rel="import" href="/polymer/core-menu/core-submenu.html" />
+	<link rel="import" href="/polymer/core-scaffold/core-scaffold.html" />
+	<link rel="import" href="/polymer/core-toolbar/core-toolbar.html" />
+
+	<link rel="import" href="/polymer/paper-button/paper-button.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-dialog.html" />
+	<link rel="import" href="/polymer/paper-dialog/paper-action-dialog.html" />
+	<link rel="import" href="/polymer/paper-checkbox/paper-checkbox.html" />
+	<link rel="import" href="/polymer/paper-fab/paper-fab.html" />
+	<link rel="import" href="/polymer/paper-icon-button/paper-icon-button.html" />
+	<link rel="import" href="/polymer/paper-input/paper-input.html" />
+	<link rel="import" href="/polymer/paper-input/paper-input-decorator.html" />
+	<link rel="import" href="/polymer/paper-progress/paper-progress.html" />
+	<link rel="import" href="/polymer/paper-radio-group/paper-radio-group.html" />
+	<link rel="import" href="/polymer/paper-slider/paper-slider.html" />
+	<link rel="import" href="/polymer/paper-spinner/paper-spinner.html" />
+	<link rel="import" href="/polymer/paper-tabs/paper-tabs.html" />
+	<link rel="import" href="/polymer/paper-toggle-button/paper-toggle-button.html" />
+
+
+	<link rel="stylesheet" href="/css/styles.css" shim-shadowdom />
+
+	<script>
+	function submit() {
+		console.log($('#email').val());
 	}
 
-	.form-signin {
-		max-width: 330px;
-		padding: 15px;
-		margin: 0 auto;
-	}
-	.form-signin .form-signin-heading,
-	.form-signin .checkbox {
-		margin-bottom: 10px;
-	}
-	.form-signin .checkbox {
-		font-weight: normal;
-	}
-	.form-signin .form-control {
-		position: relative;
-		height: auto;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		padding: 10px;
-		font-size: 16px;
-	}
-	.form-signin .form-control:focus {
-		z-index: 2;
-	}
-	.form-signin input[type="email"] {
-		margin-bottom: -1px;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-	}
-	.form-signin input[type="password"] {
-		margin-bottom: 10px;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-	}
-	</style>
+	</script>
+
 </head>
-<body>
-	<div class="container-fluid">
-		<form class="form-signin" role="form" method="post">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="email" class="sr-only">Email</label>
-			<input type="email" id="email" name="email" class="form-control"
-				placeholder="Email" required autofocus />
-			<label for="password" class="sr-only">Password</label>
-			<input type="password" id="password" name="password"
-				class="form-control" placeholder="Password" required />
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" value="remember-me"> Remember me
-				</label>
-			</div>
-			<button class="btn btn-lg btn-primary btn-block"
-				type="submit">Sign in</button>
-		</form>
-	</div>
 
+<body fullbleed unresolved>
+	<core-toolbar-panel main>
+		<core-toolbar>
+			<!-- <paper-icon-button id="navicon" icon="menu"></paper-icon-button> -->
+			<span flex>Sign In</span>
+			<!-- <paper-icon-button icon="search"></paper-icon-button> -->
+			<paper-icon-button icon="more-vert"></paper-icon-button>
+		</core-toolbar>
+
+		<div class="content">
+			<section>
+				<form action="javascript:submit()">
+					<paper-input-decorator label="Email" floatingLabel>
+						<input id="email" name="email" autofocus />
+					</paper-input-decorator>
+
+					<paper-input-decorator label="Password" floatingLabel>
+						<input id="password" name="password" type="password" />
+					</paper-input-decorator>
+
+					<paper-fab icon="arrow-forward" onclick="javascript:submit()"
+						style="margin-top:10px;"
+					></paper-fab>
+					&nbsp;&nbsp;
+					<a href="/register">Register</a>
+				</form>
+			</section>
+		</div>
+	</core-toolbar-panel>
 	<script src="/js/jquery.js"></script>
-	<script src="/js/bootstrap.js"></script>
 </body>
 </html>

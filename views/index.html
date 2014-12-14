@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 <head>
 	<title>Polymer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -38,13 +38,12 @@
 
 	<link rel="stylesheet" href="/css/styles.css" shim-shadowdom />
 
+	<script src="/js/angular.js"></script>
 	<script>
 	function submit() {
 		console.log($('#name1').val());
 	}
-
 	</script>
-
 </head>
 
 <body fullbleed unresolved>
@@ -304,17 +303,35 @@
 						</div>
 					</section>
 				</template>
+				<script>
+					var scope = document.querySelector('template[is=auto-binding]');
+					scope.toggleDialog1 = function(e) {
+						if (e.target.localName != 'button') {
+							return;
+						}
+						var d = e.target.querySelector('paper-dialog,paper-action-dialog');
+						if (!d) {
+							return;
+						}
+						d.toggle();
+					};
 
+					scope.transitions = [
+						'core-transition-center',
+						'core-transition-top',
+						'core-transition-bottom',
+						'core-transition-left',
+						'core-transition-right'
+					];
 
-
-
-
-
-
-
-
-
-
+					scope.toggleDialog2 = function(e) {
+						if (e.target.localName != 'button') {
+							return;
+						}
+						scope.transition = e.target.getAttribute('transition');
+						document.getElementById('dialog2').toggle();
+					};
+				</script>
 
 
 
@@ -331,6 +348,7 @@
 				drawerPanel.togglePanel();
 			});
 		});
+
 	</script>
 
 	<script src="/js/jquery.js"></script>
@@ -344,6 +362,9 @@
 	});
 	*/
 	</script>
+
+
+
 
 </body>
 </html>

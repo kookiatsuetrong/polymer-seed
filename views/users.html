@@ -13,6 +13,16 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+	<style type="text/less">
+		@primary: yellow;
+		body {
+			background: @primary;
+		}
+	</style>
+
+	<script src="/js/less.js"></script>
+
+
 </head>
 <body>
 	<h1>Hello, world!</h1>
@@ -23,5 +33,27 @@
 
 	<script src="/js/jquery.js"></script>
 	<script src="/js/bootstrap.js"></script>
+
+
+	<script>
+
+
+		$(document).ready(function() {
+			var colors = [
+				'red', 'green', 'blue', 'yellow'
+			]
+			var i = 0;
+
+			setInterval(function() {
+				less.modifyVars({'@primary': colors[i]});
+				i = (i + 1) % colors.length;
+				console.log(colors[i]);
+			}, 1000);
+
+		});
+
+	</script>
+
+
 </body>
 </html>

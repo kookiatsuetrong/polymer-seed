@@ -23,7 +23,6 @@ router.get("/", function(req, res) {
 */
 });
 
-
 router.get("/header", function(req, res) {
 	res.render("header.html");
 });
@@ -42,6 +41,14 @@ router.get("/scaffold", function(req, res) {
 
 router.get("/signin", function(req, res) {
 	res.render("signin.html");
+});
+
+router.get("/register", function(req, res) {
+	res.render("register.html");
+});
+
+router.get("/angular", function(req, res) {
+	res.render("angular.html");
 });
 
 router.get("/demo", function(req, res) {

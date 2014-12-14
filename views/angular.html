@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 <head>
 	<title>Polymer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -38,43 +38,66 @@
 
 	<link rel="stylesheet" href="/css/styles.css" shim-shadowdom />
 
-	<script>
-	function submit() {
-		console.log($('#email').val());
-	}
-
-	</script>
+	<script src="/js/angular.js"></script>
 </head>
 
-<body unresolved>
-	<core-toolbar-panel main>
-		<core-toolbar>
-			<!-- <paper-icon-button id="navicon" icon="menu"></paper-icon-button> -->
-			<span flex>Sign In</span>
-			<!-- <paper-icon-button icon="search"></paper-icon-button> -->
-			<paper-icon-button icon="more-vert"></paper-icon-button>
-		</core-toolbar>
+<body fullbleed unresolved>
 
-		<div class="content">
-			<section>
-				<form action="javascript:submit()">
-					<paper-input-decorator label="Email" floatingLabel>
-						<input id="email" name="email" autofocus />
-					</paper-input-decorator>
+	<h2>Todo</h2>
+	<div ng-controller="TodoController">
+		<span>{{remaining()}} of {{todos.length}} remaining</span>
+		[ <a href="" ng-click="archive()">archive</a> ]
+		<ul class="unstyled">
+			<li ng-repeat="todo in todos">
+				<input type="checkbox" ng-model="todo.done">
+				<span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+		</ul>
+		<form ng-submit="addTodo()">
+			<input type="text" ng-model="todoText"	size="30"
+						placeholder="add new todo here">
+			<input class="btn-primary" type="submit" value="add">
+		</form>
+	</div>
 
-					<paper-input-decorator label="Password" floatingLabel>
-						<input id="password" name="password" type="password" />
-					</paper-input-decorator>
+	<br/><br/><br/>
 
-					<paper-fab icon="arrow-forward" onclick="javascript:submit()"
-						style="margin-top:10px;"
-					></paper-fab>
-					&nbsp;&nbsp;
-					<a href="/register">Register</a>
-				</form>
-			</section>
-		</div>
-	</core-toolbar-panel>
-	<script src="/js/jquery.js"></script>
+	<style>
+	.done-true {
+		text-decoration: line-through;
+		color: grey;
+	}
+	</style>
+
+	<script>
+		angular.module('app', [])
+		.controller('TodoController', function($scope) {
+			$scope.todos = [
+				{text:'learn angular', done:true},
+				{text:'build an angular app', done:false}];
+
+			$scope.addTodo = function() {
+				$scope.todos.push({text:$scope.todoText, done:false});
+				$scope.todoText = '';
+			};
+
+			$scope.remaining = function() {
+				var count = 0;
+				angular.forEach($scope.todos, function(todo) {
+					count += todo.done ? 0 : 1;
+				});
+				return count;
+			};
+
+			$scope.archive = function() {
+				var oldTodos = $scope.todos;
+				$scope.todos = [];
+				angular.forEach(oldTodos, function(todo) {
+					if (!todo.done) $scope.todos.push(todo);
+				});
+			};
+		});
+
+	</script>
 </body>
 </html>
